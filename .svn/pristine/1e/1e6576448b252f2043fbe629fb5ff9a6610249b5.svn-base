@@ -1,0 +1,16 @@
+{
+  "success": true,
+  "msg": "命令执行成功",
+  "obj": {
+    "id": 12,
+    "title": "发现不明界碑",
+    "eventTime": "2017-06-09 10:02:24",
+    "contentText": "发现不明界碑请求处理",
+    "files": [
+      {
+        "fileType": "jpg",
+        "fileUrl": "upload\\c7cf789c-929d-4b61-bd87-cfb812ee1923QQ截图20170603135257.jpg"
+      }
+    ]
+  }
+}

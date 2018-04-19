@@ -1,0 +1,115 @@
+<ion-content class="ion-content-body">
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <section class="section-wrapper media pages">
+    <div class="public-title">
+      <a class="go-back" (click)="back()" ><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <ion-icon name="download" *ngIf="firstFile" id="download" class="download" style="margin-right: 25px;float: right;color: white;font-size: 45px;" (tap)="download($event)"></ion-icon>
+    </div>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div class="carousel-inner">
+
+        <div class="item active" *ngIf="!firstFile">
+          <table class="" >
+            <tr>
+              <td>
+                <img src="assets/content/images/no_img.png"/>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="item active" *ngIf="firstFile">
+          <table class="" *ngIf="firstFile?.fileType == '1'" >
+            <tr>
+              <td>
+                <img  src="{{firstFile?.fileUrl}}" imageViewer />
+              </td>
+            </tr>
+          </table>
+
+          <section class="videos-wrapper" *ngIf="firstFile?.fileType == '2'">
+            <audio controls="controls" style="height: 350px;">
+              <source src="{{firstFile?.fileUrl}}" />
+              您的设备不支持播放音频
+            </audio>
+          </section>
+
+          <section class="videos-wrapper" *ngIf="firstFile?.fileType == '3'">
+            <video class="video-js vjs-default-skin" controls="" height="350px" width="500px">
+              <source class="mp4" src="{{firstFile?.fileUrl}}" type="video/mp4">
+              <source class="mp4" src="{{firstFile?.fileUrl}}" type="video/ogg">
+              <source class="mp4" src="{{firstFile?.fileUrl}}" type="video/webm">
+              您的设备不支持播放视频
+            </video>
+          </section>
+
+        </div>
+
+
+
+        <div  class="item" *ngFor="let file of modelDate?.files,let i = index" >
+
+          <table class="" *ngIf="file?.fileType == '1'">
+            <tr>
+              <td>
+                <img src="{{file?.fileUrl}}" imageViewer />
+              </td>
+            </tr>
+          </table>
+
+          <section class="videos-wrapper" *ngIf="file?.fileType == '2'">
+            <audio controls="controls"  style="height: 350px;" >
+              <source src="{{file?.fileUrl}}" />
+              您的设备不支持播放音频
+            </audio>
+          </section>
+
+          <section class="videos-wrapper" *ngIf="file?.fileType == '3'">
+            <video class="video-js vjs-default-skin" controls="" height="350px" width="500px">
+              <source class="mp4" src="{{file?.fileUrl}}" type="video/mp4">
+              <source class="mp4" src="{{file?.fileUrl}}" type="video/ogg">
+              <source class="mp4" src="{{file?.fileUrl}}" type="video/webm">
+              您的设备不支持播放视频
+            </video>
+          </section>
+
+        </div>
+
+    </div>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active" *ngIf="firstFile"></li>
+
+        <li data-target="#carousel-example-generic" *ngFor="let file of modelDate?.files,let i = index"  [attr.data-slide-to]="i+1" >
+        </li>
+
+      </ol>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" *ngIf="fileLength > 0 ">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" *ngIf="fileLength > 0">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>
+
+    </div>
+
+    <div class="infro">
+      <div class="title"    style="height: auto;" >
+        <span class="type"><i class="glyphicon glyphicon-info-sign"></i> {{type}}</span>
+        <h4 style="width: 65%;">{{title}}</h4>
+        <span class="time"><i class="glyphicon glyphicon-time"></i> {{eventTime}}</span>
+      </div>
+      <p>
+        {{contentText}}
+      </p>
+    </div>
+
+  </section>
+
+</ion-content>
+

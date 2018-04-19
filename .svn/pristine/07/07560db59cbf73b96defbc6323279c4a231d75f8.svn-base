@@ -1,0 +1,20 @@
+report-page {
+
+  .maps-group1{
+    margin-left: auto;
+    box-sizing: content-box;
+    top: 64px;
+    width: 240px;
+    padding: 0 5px 0 15px;
+    border-radius: 8px;
+    color: #fff;
+    overflow: hidden;
+  }
+
+  .maps-group1.right1{
+    right: 20px;
+    width: 340px;
+    padding: 0;
+  }
+
+}

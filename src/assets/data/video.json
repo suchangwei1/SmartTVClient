@@ -1,0 +1,21 @@
+{
+  "success": true,
+  "msg": "",
+  "obj": [
+    {
+      "uid": 15,
+      "name": "test",
+      "roadname": "sa35路A4段"
+    },
+    {
+      "uid": 16,
+      "name": "张三",
+      "roadname": "qw18路W1段"
+    },
+    {
+      "uid": 17,
+      "name": "李四",
+      "roadname": "aa22路Z6段"
+    }
+  ]
+}

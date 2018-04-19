@@ -1,0 +1,7 @@
+签名：
+jarsigner -verbose -keystore F:\SmartTVClient\smartTVClient.keystore -signedjar F:\SmartTVClient\platforms\android\build\outputs\apk\android-release.apk F:\SmartTVClient\platforms\android\build\outputs\apk\android-release-unsigned.apk smartTVClient.keystore
+
+口令：sirbox.cn
+
+生成证书：
+keytool -genkey -alias smartTVClient.keystore -keyalg RSA -validity 40000 -keystore smartTVClient.keystore

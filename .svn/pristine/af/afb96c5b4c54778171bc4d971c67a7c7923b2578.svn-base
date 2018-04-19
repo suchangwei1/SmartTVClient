@@ -1,0 +1,4 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+//服务器地址
+exports.BaseUrl = 'http://192.168.1.102:8081';

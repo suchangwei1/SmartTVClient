@@ -1,0 +1,57 @@
+import {Injectable} from '@angular/core'
+import {Http, URLSearchParams, Headers} from '@angular/http';
+import {StorageProvider} from '../providers/storage-provider';
+import {BaseUrl, TOKEN} from '../app/app.commonSet'
+import 'rxjs/add/operator/toPromise';
+
+//巡防管理
+@Injectable()
+export class PatrolService {
+
+  constructor(private http: Http, private storageProvider: StorageProvider) {
+  }
+
+  baseUrl = BaseUrl;
+  private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded,charset=UTF-8'});
+  //获取当前正在巡防的所有人员  assets/data/patrol.json
+  getPeoples(): any {
+    let params = new URLSearchParams();                     //传递参数
+    params.set('token', TOKEN);
+    return this.http.post(this.baseUrl + "/smart/watchman", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //获取界碑信息
+  getMapMark(): any {
+    let params = new URLSearchParams();                     //传递参数
+    params.set('token', TOKEN);
+    return this.http.post(this.baseUrl + "/smart/mapmark", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //获取巡防人员上报列表 by ID assets/data/personReportlist.json
+  getReportById(uid: string, patrolid: string): any {
+    let params = new URLSearchParams();
+    params.set('uid', uid);
+    params.set('pid', patrolid);
+    params.set('token', TOKEN);
+    return this.http.post(this.baseUrl + "/smart/personsendlist", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //获取龙州县边境坐标
+  getMapLine(): any {
+    let params = new URLSearchParams();
+    params.set('selKey', "map_line");
+    params.set('token', TOKEN);
+    return this.http.post(this.baseUrl + "/smart/QueryConfig", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //异常处理
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only   error.message || error
+    return Promise.reject(error.message || error);
+  }
+
+}

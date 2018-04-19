@@ -1,0 +1,17 @@
+/**
+* Global object VideoPush.
+*/
+interface Window {
+    VideoPush: VideoPush;
+}
+
+
+
+interface VideoPush {
+    SendInfo: (rtmpUrl: string,videoUrl: string,deviceType: string,onSuccess: (message: string) => void,
+        onError: (message: string) => void) => void;
+   
+    isLive: boolean;
+}
+
+declare var VideoPush: VideoPush;

@@ -1,0 +1,68 @@
+{
+  "success": true,
+  "msg": "",
+  "obj": [
+    {
+      "uid": 15,
+      "name": "test",
+      "roadname": "sa35路A4段",
+      "totaldistance": 25.3,
+      "reportcount": 0,
+      "longitude": 110.299721,
+      "latitude": 25.292988,
+      "patrolid": 1,
+      "patroldistance": 19,
+      "roadinfo": [],
+      "patrolinfo": [
+        {
+          "longitude": 110.299721,
+          "latitude": 25.292988
+        },
+        {
+          "longitude": 110.299599,
+          "latitude": 25.292988
+        },
+        {
+          "longitude": 110.299606,
+          "latitude": 25.292988
+        }
+      ]
+    },
+    {
+      "uid": 16,
+      "name": "张三",
+      "roadname": "qw18路W1段",
+      "totaldistance": 22.8,
+      "reportcount": 0,
+      "longitude": 110.299721,
+      "latitude": 25.292988,
+      "patrolid": 2,
+      "patroldistance": 11,
+      "roadinfo": [],
+      "patrolinfo": [
+        {
+          "longitude": 110.299721,
+          "latitude": 25.292988
+        }
+      ]
+    },
+    {
+      "uid": 17,
+      "name": "李四",
+      "roadname": "aa22路Z6段",
+      "totaldistance": 11.2,
+      "reportcount": 0,
+      "longitude": 110.299721,
+      "latitude": 25.292988,
+      "patrolid": 3,
+      "patroldistance": 5,
+      "roadinfo": [],
+      "patrolinfo": [
+        {
+          "longitude": 110.299721,
+          "latitude": 25.292988
+        }
+      ]
+    }
+  ]
+}

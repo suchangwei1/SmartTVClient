@@ -1,0 +1,85 @@
+import {BrowserModule} from '@angular/platform-browser';
+import {ErrorHandler, NgModule} from '@angular/core';
+import {IonicApp, IonicErrorHandler, IonicModule} from 'ionic-angular';
+import {SplashScreen} from '@ionic-native/splash-screen';
+import {StatusBar} from '@ionic-native/status-bar';
+import {HttpModule} from '@angular/http';
+import {AppVersion} from "@ionic-native/app-version";
+import {File} from '@ionic-native/file';
+import {Transfer, TransferObject} from '@ionic-native/transfer';
+import {InAppBrowser} from '@ionic-native/in-app-browser';
+import {AndroidPermissions} from '@ionic-native/android-permissions';
+
+
+import {MyApp} from './app.component';
+import {HomePage} from '../pages/home/home';
+import {PatrolPage} from '../pages/patrol/patrol';
+import {ReportPage} from '../pages/report/report';
+import {VideoPage} from '../pages/video/video';
+import {PersonsManegePage} from '../pages/personsManege/personsManege';
+import {ReportView} from '../pages/reportView/reportView';
+import {VideoViewPage} from '../pages/videoView/videoView';
+import {facdHeaderComponent} from '../pages/facdHeader/facdHeader';
+
+import {StorageProvider} from '../providers/storage-provider';
+import {ReportService} from '../providers/report.service';
+import {PatrolService} from '../providers/patrol.service';
+import {HomeService} from '../providers/home.service'
+import {VideoService} from '../providers/video.service'
+import {PersonsManegeService} from '../providers/personsManege.service'
+
+import {CommonAction} from '../providers/commonAction.service';
+import {UpdateService} from '../providers/update.service'
+
+import {SomeDirective} from '../pages/patrol/directive';
+import {HomeDirective} from '../pages/home/homeDirective';
+
+
+@NgModule({
+  declarations: [
+    MyApp,
+    HomePage,
+    PatrolPage,
+    ReportPage,
+    VideoPage,
+    PersonsManegePage,
+    ReportView,
+    SomeDirective,
+    VideoViewPage,
+    facdHeaderComponent,
+    HomeDirective
+  ],
+  imports: [
+    BrowserModule,
+    HttpModule,
+    IonicModule.forRoot(MyApp)
+  ],
+  bootstrap: [IonicApp],
+  entryComponents: [
+    MyApp,
+    HomePage,
+    PatrolPage,
+    ReportPage,
+    VideoPage,
+    PersonsManegePage,
+    ReportView,
+    VideoViewPage
+  ],
+  providers: [
+    StatusBar,
+    SplashScreen,
+    ReportService,
+    StorageProvider,
+    PatrolService,
+    HomeService,
+    VideoService,
+    CommonAction,
+    AppVersion, File, Transfer, TransferObject, InAppBrowser, AndroidPermissions,
+    UpdateService,
+    PersonsManegeService,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+
+  ]
+})
+export class AppModule {
+}

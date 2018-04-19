@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-video-push" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+	<name>cordovaVideoPush</name>
+	<description>Cordova VideoPush Plugin</description>
+	<license>Apache 2.0</license>
+	<keywords>cordova,videopush,livepush</keywords>
+	
+	<engines>
+            <engine name="cordova" version=">=4.0.0" />
+    </engines>
+	
+	<js-module name="cordovaVideoPush" src="www/cordovaVideoPush.js">
+		<clobbers target="VideoPush" />
+	</js-module>
+	
+	<platform name="android">
+		<source-file src="src/android/cordovaVideoPush.java" target-dir="src/cordova-plugin-video-push/cordovaVideoPush" />
+		
+		<config-file parent="/*" target="res/xml/config.xml">
+			<feature name="cordovaVideoPush">
+				<param name="android-package" value="cordova.plugin.video.push.cordovaVideoPush" />
+			</feature>
+		</config-file>
+		<config-file parent="/*" target="AndroidManifest.xml"></config-file>
+	</platform>
+	
+</plugin>

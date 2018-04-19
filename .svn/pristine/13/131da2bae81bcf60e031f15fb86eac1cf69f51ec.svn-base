@@ -1,0 +1,47 @@
+/// <reference path="../../declarations.d.ts"/>
+import { Component,OnInit } from '@angular/core';
+import { NavController,NavParams } from 'ionic-angular';
+import { CommonAction } from '../../providers/commonAction.service';
+import { PersonsManegeService } from '../../providers/personsManege.service';
+
+//护路员管理
+@Component({
+  selector: 'personsManege-home',
+  templateUrl: 'personsManege.html'
+})
+export class PersonsManegePage implements OnInit {
+  data:any;
+  flag=true;
+  buttonName = '点击查看：护边员信息报送统计表';
+  names=['刘一','陈二','张三','李四','王五','赵六','孙七','周八','吴九'];
+  nowtime:any=Date.now();  //获取当前时间
+
+  constructor(private pmService:PersonsManegeService,private commonAction:CommonAction,private nav:NavController,private navParams:NavParams) {
+  }
+  ngOnInit(): void {
+    setInterval(()=>{  //设置定时器，隔1秒刷新一次，好实时监控时间
+      this.nowtime=Date.now();   //Date里面自带方法
+    },1000);
+    new CalculateWindowSize();
+    new personsManegePage();
+    this.pmService.getReportTable().then(data => this.data = data.obj);
+  }
+  chooseTable(){
+    if(this.flag==true){
+      this.flag=false;
+      this.buttonName = '点击查看：护边员信息报送统计表';
+    }else {
+      this.flag=true;
+      this.buttonName = '点击查看：护边员绩效考评统计表';
+    }
+  }
+
+  back(){
+    //调用mouseleave滚动公告，防止公告不滚动
+    var myMarquee = <HTMLDivElement>document.querySelector('#myMarquee');
+    new mouseleave(myMarquee);
+
+    this.nav.pop();
+    //this.commonAction.backHome();
+  }
+}

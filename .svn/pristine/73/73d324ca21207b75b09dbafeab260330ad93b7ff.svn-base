@@ -1,0 +1,25 @@
+<ion-content class="ion-content-body">
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <!--video-->
+  <section class="section-wrapper return">
+
+    <div class="public-title">
+      <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <h4>视频文件</h4>
+    </div>
+    <div class="videos-return" >
+    <ion-list>
+      <ion-item *ngFor="let item of data">
+        <ion-avatar item-start>
+          <img src="{{item?.videoImg}}" imageViewer>
+        </ion-avatar>
+        <p>直播人：{{item?.remarks}}</p>
+        <p>{{item?.createTime}}</p>
+        <ion-icon name="cloud-download" item-end (click)="alertVideoAsk(item?.fileUrl)"></ion-icon>
+      </ion-item>
+    </ion-list>
+    </div>
+  </section>
+</ion-content>

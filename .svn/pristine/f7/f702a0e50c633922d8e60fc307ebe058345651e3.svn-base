@@ -1,0 +1,14 @@
+var exec = require('cordova/exec');
+
+var VlcPlayer = {
+    play: function(url) {
+       console.log("play");
+        exec(null, null, "VlcPlayer", "playVideo", [url]);
+    },
+    playByVlc: function(url) {
+       console.log("showToast");
+        exec(null, null, "VlcPlayer", "playByVlc", [url]);
+    }
+
+};
+module.exports = VlcPlayer;

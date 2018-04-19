@@ -1,0 +1,21 @@
+videoView-page {
+  .section-wrapper.return .close{
+    display: inline-block;
+    position: absolute;
+    right: 50%;
+    bottom: 80px;
+    width: 72px;
+    height: 72px;
+    margin-left: -36px;
+    z-index: 1000;
+    opacity: 1;
+    font-size: 32px;
+    text-align: center;
+    line-height: 72px;
+    color: #fff;
+    text-shadow: none;
+    background: rgba(255, 0, 0, .75);
+    border-radius: 50%;
+    border: 1px solid #f00;
+  }
+}

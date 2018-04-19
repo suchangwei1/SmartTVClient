@@ -1,0 +1,51 @@
+import {Injectable} from '@angular/core'
+import {Http, URLSearchParams, Headers} from '@angular/http';
+import {StorageProvider} from '../providers/storage-provider';
+import {BaseUrl, TOKEN} from '../app/app.commonSet'
+import 'rxjs/add/operator/toPromise';
+
+//实时视频
+@Injectable()
+export class VideoService {
+
+  constructor(private http: Http) {
+  }
+
+  baseUrl = BaseUrl;
+  private headers = new Headers({'Content-Type': 'application/x-www-form-urlencoded,charset=UTF-8'});
+
+  //获取当前在线的巡防人员
+  getPeopleOnline(): any {
+    let params = new URLSearchParams();
+    params.set('token', TOKEN);
+    return this.http.post(this.baseUrl + "/smart/peopleonline", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //请求巡防人员开启直播
+  setPeopleVideoOpen(patrolid: string, receiveId: string): any {
+    let params = new URLSearchParams();
+    params.set('token', TOKEN);
+    params.set('patrolid', patrolid);
+    params.set('receiveId', receiveId);
+    return this.http.post(this.baseUrl + "/smart/onlineLive", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //查询单人直播状态
+  checkVideoOpen(patrolid: string, receiveId: string): any {
+    let params = new URLSearchParams();
+    params.set('token', TOKEN);
+    params.set('patrolid', patrolid);
+    params.set('receiveId', receiveId);
+    return this.http.post(this.baseUrl + "/smart/onlineLiveToOne", {headers: this.headers}, {params: params}).toPromise()
+      .then(response => response.json()).catch(this.handleError);
+  }
+
+  //异常处理
+  private handleError(error: any): Promise<any> {
+    console.error('An error occurred', error); // for demo purposes only   error.message || error
+    return Promise.reject(error.message || error);
+  }
+
+}

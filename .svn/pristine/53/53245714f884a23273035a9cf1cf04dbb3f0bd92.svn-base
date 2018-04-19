@@ -1,0 +1,332 @@
+﻿
+/*=========================================================================*/
+/*                           SHANXI Data Actions                             */
+/*=========================================================================*/
+
+// 计算屏幕尺寸 CalculateWindowSize
+function CalculateWindowSize() {
+  var winHeight;
+  var winWidth;
+  //Get Window Width and Height
+  if (window.innerWidth)
+    winWidth = window.innerWidth;
+  else if ((document.body) && (document.body.clientWidth))
+    winWidth = document.body.clientWidth;
+  //Get This Window Height
+  if (window.innerHeight)
+    winHeight = window.innerHeight;
+  else if ((document.body) && (document.body.clientHeight))
+    winHeight = document.body.clientHeight;
+  if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
+    winHeight = document.documentElement.clientHeight;
+    winWidth = document.documentElement.clientWidth;
+  }
+  ;
+
+  // html, body
+  $('html, body').height(winHeight);
+  $('html, body').width(winWidth);
+
+  // section-wrapper
+  $('.section-wrapper.index').height(winHeight - 298);
+  $('.section-wrapper.maps').height(winHeight - 170);
+
+  $('.maps-group').height(winHeight - 244);
+  $('.maps-group .user-group').height(winHeight - 254);
+  $('.maps-group .mess-inbox').height(winHeight - 316);
+
+  $('.section-wrapper.media').width(winWidth - 740);
+  $('.section-wrapper.media').height(winHeight - 170);
+  $('.section-wrapper.media .carousel-inner .item table td').height(winHeight - 320);
+
+  $('.section-wrapper.media.pages').width(winWidth - 60);
+  $('.section-wrapper.media.pages').height(winHeight - 170);
+
+  $('.section-wrapper.video').height(winHeight - 170);
+  $('.section-wrapper.return').height(winHeight - 170);
+  $('.section-wrapper.return .videos-return').height(winHeight - 300);
+  $('.section-wrapper.return .videos-return .swiper-slide').height(winHeight - 400);
+
+  $('.section-wrapper.message').height(winHeight - 170);
+  $('.section-wrapper.message .message-allbox .listview').height(winHeight - 263);
+
+  $('.section-wrapper.reports').height(winHeight - 170);
+  $('.section-wrapper.reports .table-wrapper').height(winHeight - 280);
+
+  //监听信息上报详细窗口的关闭事件
+  $('.message-media .close').click(function () {
+    $(this).parent().slideUp();
+  });
+
+};
+
+// 全屏
+function fullScreen() {
+  var winHeight;
+  var winWidth;
+  //Get Window Width and Height
+  if (window.innerWidth)
+    winWidth = window.innerWidth;
+  else if ((document.body) && (document.body.clientWidth))
+    winWidth = document.body.clientWidth;
+  //Get This Window Height
+  if (window.innerHeight)
+    winHeight = window.innerHeight;
+  else if ((document.body) && (document.body.clientHeight))
+    winHeight = document.body.clientHeight;
+  if (document.documentElement && document.documentElement.clientHeight && document.documentElement.clientWidth) {
+    winHeight = document.documentElement.clientHeight;
+    winWidth = document.documentElement.clientWidth;
+  };
+  // section-wrapper
+  $('.section-wrapper.maps').height(winHeight);
+}
+
+function showHeader() {
+  $('.container-fluid').show();
+  $('.section-wrapper.maps').css("margin","0 30px");
+
+}
+function hideHeader() {
+  $('.container-fluid').hide();
+  $('.section-wrapper.maps').css("margin","0 0px");
+}
+
+//窗口改变时触发
+window.onresize = function () {
+    CalculateWindowSize();
+};
+
+/**
+ * @description Chrome、FireFox、Opera、Safari、IE9.0及其以上版本
+ */
+function addEvent(obj,type,handle){
+  try{
+    obj.addEventListener(type,handle,false);
+  }catch(e){
+    try{  // IE8.0及其以下版本
+      obj.attachEvent('on' + type,handle);
+    }catch(e){  // 早期浏览器
+      obj['on' + type] = handle;
+    }
+  }
+}
+
+/**
+ * @description 事件移除，兼容各浏览器
+ * @param target 事件触发对象
+ * @param type 事件
+ * @param func 事件处理函数
+ */
+function removeEvent(target, type, func){
+  if (target.removeEventListener)
+    target.removeEventListener(type, func, false);
+  else if (target.detachEvent)
+    target.detachEvent("on" + type, func);
+  else target["on" + type] = null;
+};
+
+// TabWarpFuncClick
+function TabWarpFuncClick(TabLink, TabContent, TabLinkShow) {
+    $("." + TabLink).click(function () {
+        $("." + TabLink).removeClass(TabLinkShow);
+        $(this).addClass(TabLink + " " + TabLinkShow);
+        var i = $(this).prevAll().length;
+        $("." + TabContent).hide();
+        $($("." + TabContent).get(i)).show();
+    });
+};
+
+function initPopover(){
+
+  var settings = {
+    trigger:'hover', // hover & click
+    //title:'Pop Title',
+    content: $("#MapsAjax").html(),
+    //width:300,
+    //multi:true,
+    //closeable:true,
+    //style:'',
+    padding:true,
+  };
+
+  $('.show-pop').webuiPopover('destroy').webuiPopover(settings);
+
+  var largeContent = $('#largeContent').html(),
+    largeSettings = {
+      content:largeContent,
+      width:370,
+      //height:260,
+      closeable:false,
+    };
+  $('.show-pop-large').webuiPopover('destroy').webuiPopover($.extend({},settings,largeSettings));
+
+};
+//显示通知公告弹窗
+function showNews(contenthtml){
+    layer.open({
+      title: false,
+      type: 1,
+      skin: 'layout-news-domain', //样式类名
+      closeBtn: true, //不显示关闭按钮
+      anim: 2,
+      area: ['70%', '668px'],
+      shadeClose: true, //开启遮罩关闭
+      content: contenthtml,
+    });
+}
+
+//显示反馈弹窗
+function showFeedBack(contenthtml){
+  layer.open({
+    title: false,
+    type: 1,
+    skin: 'layout-news-domain', //样式类名
+    closeBtn: true, //不显示关闭按钮
+    anim: 2,
+    area: ['40%', '258px'],
+    shadeClose: false, //开启遮罩关闭
+    content: contenthtml,
+  });
+}
+
+//关闭通知公告弹窗
+function closeNews(){
+  layer.closeAll();
+}
+
+//显示上报信息详细窗口
+function showMessDetailes(){
+  hideInfoBox();
+  $('.message-media').slideDown();
+}
+
+
+//不显示cesium冒泡
+function hideInfoBox(){
+  $(".cesium-selection-wrapper").hide();
+  $(".infowin3D").hide();
+}
+
+
+//护路员管理 列表切换
+function personsManegePage() {
+
+  $('.ShowDiv1').click(function(){
+    $(this).hide();
+    $('#Div1').hide();
+    $('.Title1').hide();
+
+    $('.Title2').show();
+    $('.ShowDiv2').show();
+    $('#Div2').show();
+  });
+  $('.ShowDiv2').click(function(){
+    $(this).hide();
+    $('#Div2').hide();
+    $('.Title2').hide();
+
+    $('.Title1').show();
+    $('.ShowDiv1').show();
+    $('#Div1').show();
+  });
+
+}
+
+//显示个人巡防两侧信息
+function showPatrolinfo() {
+//alert("显示，走js");
+  $("#mapsgroupleft").css("display","");
+  $("#mapsgroupright").css("display","");
+
+  //监听地图其他区域点击事件-用于关闭个人巡防两侧信息
+  // $('.cesium-viewer-cesiumWidgetContainer').click(function(){
+  //   closePatrolinfo();
+  // });
+
+  // $('.cesium-viewer').on('click',function(){
+  //   closePatrolinfo();
+  // })
+
+  //监听信息上报详细窗口的关闭事件
+  // $('.cesium-viewer').click(function(){
+  //   closePatrolinfo();
+  // });
+}
+//隐藏个人巡防两侧信息
+function closePatrolinfo() {
+  //alert("隐藏，走js");
+  console.log("隐藏个人巡防两侧信息，走js");
+  $("#mapsgroupleft").css("display","none");
+  $("#mapsgroupright").css("display","none");
+  // $("#mapsgroupleft").hide();//隐藏div
+  // $("#mapsgroupright").hide();//隐藏div
+  // $("#mapsgroupleft").attr("style","display:none;");//隐藏div
+  // $("#mapsgroupright").attr("style","display:none;");//隐藏div
+}
+
+//通知公告-鼠标悬停
+function mouseenter(obj) {
+  console.log(obj);
+  if(obj) {
+    obj.stop();
+  }
+}
+
+//通知公告-鼠标移开
+function mouseleave(obj) {
+  console.log(obj);
+  if(obj){
+    obj.start();
+  }
+
+}
+
+function showSwiper() {
+  console.log("showSwiper");
+  //$(".swiper-container.swiper-container-horizontal.swiper-container-3d.swiper-container-coverflow").css("display","");
+
+}
+//巡防人员头像不存在时显示默认图片
+function personImgOnError(obj){
+  obj.src='assets/img/p1.jpg';
+}
+//界碑图片不存在时显示默认图片
+function mapMarkImgOnError(obj){
+  obj.src='assets/content/images/logo.png';
+}
+$(function(){
+
+    // CalculateWindowSize
+    //CalculateWindowSize();
+
+    /*************************************** customs api *******************************************/
+    // TabWarpFuncClick
+    //TabWarpFuncClick("tabs-link-reports", "tabs-content-reports", "tabs-link-reports-show");
+
+
+    /*************************************** layer api *******************************************/
+    // $('.layout-news-details').click(function(){
+    //     layer.open({
+    //         title: false,
+    //         type: 1,
+    //         skin: 'layout-news-domain', //样式类名
+    //         closeBtn: false, //不显示关闭按钮
+    //         anim: 2,
+    //         area: ['75%', '768px'],
+    //         shadeClose: true, //开启遮罩关闭
+    //         content: $("#NewsDetails").html(),
+    //     });
+    // });
+    //
+    // // mess-detailes
+    // $('.show-mess-detailes').click(function(){
+    //     $('.message-media').slideDown();
+    // });
+    // $('.message-media .close').click(function(){
+    //     $(this).parent().slideUp();
+    // });
+
+  /*************************************** video page  *******************************************/
+
+});

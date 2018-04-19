@@ -1,0 +1,27 @@
+import { NgModule }             from '@angular/core';
+import { RouterModule, Routes } from '@angular/router';
+
+import { HomePage } from '../pages/home/home';
+import { PatrolPage } from '../pages/patrol/patrol';
+import { ReportPage } from '../pages/report/report';
+import { VideoPage } from '../pages/video/video';
+import { PersonsManegePage } from '../pages/personsManege/personsManege';
+
+const routes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: 'home',  component: HomePage },
+  { path: 'patrol',  component: PatrolPage },
+  { path: 'report',  component: ReportPage },
+  { path: 'video',  component: VideoPage },
+  { path: 'personsManege',  component: PersonsManegePage }
+
+];
+
+@NgModule({
+  imports: [ RouterModule.forRoot(routes)],
+  exports: [ RouterModule ],
+  providers: []
+})
+export class AppRoutes {
+
+}

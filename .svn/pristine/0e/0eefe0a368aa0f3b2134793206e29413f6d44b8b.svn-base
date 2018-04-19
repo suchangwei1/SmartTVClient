@@ -1,0 +1,77 @@
+{
+  "success": true,
+  "msg": "获取数据成功",
+  "obj": {
+    "pageInfo": {
+      "pageNo": "1",
+      "pageCount": 2
+    },
+    "data": [
+      {
+        "eventTime": "2017-06-15",
+        "events": [
+          {
+            "id": 14,
+            "type": "涉外事件",
+            "shortContent": "大事不好啦！"
+          }
+        ]
+      },
+      {
+        "eventTime": "2017-06-09",
+        "events": [
+          {
+            "id": 13,
+            "type": "涉外事件",
+            "shortContent": "发现越境人员"
+          },
+          {
+            "id": 12,
+            "type": "涉外事件",
+            "shortContent": "发现不明界碑"
+          }
+        ]
+      },
+      {
+        "eventTime": "2017-05-25",
+        "events": [
+          {
+            "id": 11,
+            "type": "涉外事件",
+            "shortContent": "11111"
+          },
+          {
+            "id": 10,
+            "type": "涉外事件",
+            "shortContent": "111"
+          },
+          {
+            "id": 9,
+            "type": "涉外事件",
+            "shortContent": "rttt"
+          },
+          {
+            "id": 8,
+            "type": "涉外事件",
+            "shortContent": "sdsdsdsd"
+          },
+          {
+            "id": 7,
+            "type": "涉外事件",
+            "shortContent": "sdsdsd"
+          },
+          {
+            "id": 6,
+            "type": "涉外事件",
+            "shortContent": "测试1"
+          },
+          {
+            "id": 5,
+            "type": "涉外事件",
+            "shortContent": "事实上"
+          }
+        ]
+      }
+    ]
+  }
+}

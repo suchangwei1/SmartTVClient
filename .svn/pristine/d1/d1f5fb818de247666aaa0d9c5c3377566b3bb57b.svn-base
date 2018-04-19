@@ -1,0 +1,64 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "com.dawsonloudon.videoplayer": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-android-permissions": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-app-version": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-screen-orientation": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-vlcplayer": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "install": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        },
+        "es6-promise-plugin": {
+            "PACKAGE_NAME": "com.ionicframework.smarttvclient370802"
+        }
+    }
+}

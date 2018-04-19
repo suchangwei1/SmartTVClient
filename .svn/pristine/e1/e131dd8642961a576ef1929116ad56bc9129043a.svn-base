@@ -1,0 +1,11 @@
+var exec = require('cordova/exec');
+
+var VideoPush = {
+	isLive: true,
+
+    SendInfo: function (rtmpUrl,videoUrl,deviceType,onSuccess, onError) {
+        exec(onSuccess, onError, "cordovaVideoPush", "SendInfo", [rtmpUrl,videoUrl,deviceType]);
+    },
+}
+
+module.exports = VideoPush;

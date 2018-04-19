@@ -1,0 +1,53 @@
+
+{
+  "success": true,
+  "msg": "",
+  "obj": [
+    {
+      "id": 1,
+      "name": "界碑名",
+      "type": 0,
+      "longitude": 1.221,
+      "latitude": 2.1112,
+      "info": "呃fsadfsdfasdfsdfasdfasf",
+      "createTime": "2017-06-13 10:42:54"
+    }
+  ]
+}
+
+//{
+//  "success": true,
+//  "msg": "",
+//  "obj": [
+//    {
+//      "id": "001",
+//      "name": "1号界碑",
+//      "longitude": 106.640883,
+//      "latitude": 22.339098
+//    },
+//    {
+//      "id": "002",
+//      "name": "2号界碑",
+//      "longitude": 106.720177,
+//      "latitude": 22.583452
+//    },
+//    {
+//      "id": "003",
+//      "name": "3号界碑",
+//      "longitude": 107.210888,
+//      "latitude": 22.462805
+//    },
+//    {
+//      "id": "004",
+//      "name": "4号界碑",
+//      "longitude": 107.081055,
+//      "latitude": 22.310616
+//    },
+//    {
+//      "id": "005",
+//      "name": "5号界碑",
+//      "longitude": 106.807416,
+//      "latitude": 22.198195
+//    }
+//  ]
+//}

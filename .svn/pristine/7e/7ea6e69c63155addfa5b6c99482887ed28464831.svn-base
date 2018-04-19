@@ -1,0 +1,26 @@
+<!--section-wrapper-->
+<ion-content class="ion-content-body">
+  <!---topbar-->
+  <facdHeader></facdHeader>
+  <!--section-wrapper-->
+  <section class="section-wrapper message">
+    <div class="public-title">
+      <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <h4>通知公告</h4>
+      <a style="position: absolute;right: 1%;margin: 10px 0;" (click)="refresh()"><img src="assets/img/refresh.png" width="40px" height="40px"></a>
+
+    </div>
+    <div class="message-allbox">
+      <div class="listview" id="listview">
+        <ion-card *ngFor="let item of notice_history" style="height: 200px;width: 90%;margin-left: 5%;">
+          <div style="height: 80%;overflow: hidden;" (click)="showDetail(item)">
+            <h2 style="text-align: center;font-size: 30px;padding-top: 2%;color: red">{{item?.title}}</h2>
+            <p style="text-indent: 2em; padding: 20px;font-size: 19px;color: red">{{infoDetail(item?.info)}}</p>
+          </div>
+          <p style="float: right;padding-right: 3%;padding-top: 10px;color: red">{{item?.show_time}}</p>
+        </ion-card>
+
+      </div>
+    </div>
+  </section>
+</ion-content>

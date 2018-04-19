@@ -1,0 +1,24 @@
+<ion-content class="ion-content-body" >
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <section class="section-wrapper return">
+    <div class="public-title">
+      <a class="go-back"  (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <a class="go-home" (click)="backHome()"><i class="glyphicon glyphicon-home"></i></a>
+      <h4>0 KM／H</h4>
+    </div>
+    <a class="close" (click)="back()"><i class="glyphicon glyphicon-earphone"></i></a>
+
+    <video id="my-video" class="video-js" playsinline controls="" >
+      <source src="rtmp://live.hkstv.hk.lxdns.com/live/hks" type="video/mp4">
+      <!-- 如果上面的rtmp流无法播放，就播放hls流 -->
+      <!--<source src="{{m3u8Url}}" type='application/x-mpegURL'>-->
+      <p class="vjs-no-js">
+        请启用JavaScript，或升级Web浏览器。
+        <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+      </p>
+    </video>
+
+  </section>
+</ion-content>

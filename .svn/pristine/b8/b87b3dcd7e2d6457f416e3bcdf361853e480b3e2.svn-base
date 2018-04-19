@@ -1,0 +1,115 @@
+{
+  "success": "true",
+  "obj": {
+    "id": "XXX001",
+    "name": "张三",
+    "road": "A32",
+    "totalDistance": "5.8km",
+    "patrolDistance": "2.8km",
+    "longitude": "106.888888",
+    "latitude": "20.666666",
+    "reportCount": "15",
+    "eventid": "1",
+    "roadlocation": [
+      {
+        "longitude": "106.888888",
+        "latitude": "20.666664"
+      },
+      {
+        "longitude": "106.888889",
+        "latitude": "20.666665"
+      },
+      {
+        "longitude": "106.888889",
+        "latitude": "20.666665"
+      },
+      {
+        "longitude": "106.888889",
+        "latitude": "20.666665"
+      },
+      {
+        "longitude": "106.888890",
+        "latitude": "20.666666"
+      }
+    ],
+    "MarchingLocation": [
+      {
+        "longitude": "106.888888",
+        "latitude": "20.666664"
+      },
+      {
+        "longitude": "106.888889",
+        "latitude": "20.666665"
+      },
+      {
+        "longitude": "106.888890",
+        "latitude": "20.666666"
+      }
+    ],
+    "infolist": [
+      {
+        "id": "1",
+        "reporttype": "基础设施",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段界碑损坏 风吹老化"
+      },
+      {
+        "id": "2",
+        "reporttype": "涉外事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发现越境人员"
+      },
+      {
+        "id": "3",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      },
+      {
+        "id": "4",
+        "reporttype": "突发事件",
+        "reporttime": "2017-05-20 13:14:00",
+        "reportinfo": "s325路段发生武装冲突！"
+      }
+
+
+    ]
+  },
+  "msg": "消息"
+}

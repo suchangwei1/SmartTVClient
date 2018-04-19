@@ -1,0 +1,189 @@
+
+<!--section-wrapper-->
+<ion-content class="ion-content-body">
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+    <!--section-wrapper-->
+    <section class="section-wrapper reports">
+        <div class="public-title">
+            <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+            <h4 class="Title1">护边员信息报送统计表</h4>
+            <h4 class="Title2" style="display:none;">护边员绩效考评统计表</h4>
+            <a class="btn btn-lg btn-success ShowDiv1" href="#">护边员绩效考评统计表</a>
+            <a class="btn btn-lg btn-success ShowDiv2" href="#" style="display:none;">护边员信息报送统计表</a>
+        </div>
+        <div class="table-wrapper">
+            <div id="Div1" class="table-cont">
+                <table class="jixoao-tables" cellSpacing="0" cellPadding="0">
+                    <tr>
+                        <th>姓名</th>
+                        <th>1 月</th>
+                        <th>2 月</th>
+                        <th>3 月</th>
+                        <th>4 月</th>
+                        <th>5 月</th>
+                        <th>6 月</th>
+                        <th>7 月</th>
+                        <th>8 月</th>
+                        <th>9 月</th>
+                        <th>10 月</th>
+                        <th>11 月</th>
+                        <th>12 月</th>
+                    </tr>
+                    <tr *ngFor="let item of data">
+                        <td>{{item?.userName}}</td>
+                        <td>{{item?.jan}}</td>
+                        <td>{{item?.feb}}</td>
+                        <td>{{item?.mar}}</td>
+                        <td>{{item?.apr}}</td>
+                        <td>{{item?.may}}</td>
+                        <td>{{item?.jun}}</td>
+                        <td>{{item?.jul}}</td>
+                        <td>{{item?.aug}}</td>
+                        <td>{{item?.sep}}</td>
+                        <td>{{item?.octb}}</td>
+                        <td>{{item?.nov}}</td>
+                        <td>{{item?.decb}}</td>
+
+                    </tr>
+
+                </table>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+            <div id="Div2" class="table-cont" style="display:none;">
+                <table class="jixoao-tables" cellSpacing="0" cellPadding="0">
+                    <tr></tr>
+                    <tr>
+                        <th>&nbsp;</th>
+                        <th colspan="3">1 月</th>
+                        <th colspan="3">2 月</th>
+                        <th colspan="3">3 月</th>
+                        <th colspan="3">4 月</th>
+                        <th colspan="3">5 月</th>
+                        <th colspan="3">6 月</th>
+                        <th colspan="3">7 月</th>
+                        <th colspan="3">8 月</th>
+                        <th colspan="3">9 月</th>
+                        <th colspan="3">10 月</th>
+                        <th colspan="3">11 月</th>
+                        <th colspan="3">12 月</th>
+                    </tr>
+                    <tr>
+                        <td>姓名</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                        <td>信息工作</td>
+                        <td>基建维护</td>
+                        <td>日常表现</td>
+                    </tr>
+                    <tr>
+                        <td>吴九</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                        <td><u>2</u>分</td>
+                        <td><u>4</u>分</td>
+                        <td><u>6</u>分</td>
+                    </tr>
+                </table>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </section>
+</ion-content>

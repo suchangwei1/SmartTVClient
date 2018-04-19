@@ -1,0 +1,47 @@
+
+<!--section-wrapper-->
+<ion-content class="ion-content-body">
+  <!---topbar-->
+<facdHeader></facdHeader>
+
+  <section class="container-fluid">
+    <div class="marquee-box">
+      <span>&nbsp;</span>
+      <marquee id="myMarquee"  align="left" behavior="scroll" direction="left" scrollamount="5" scrolldelay="5" loop="-1" >
+        <h6 *ngFor="let item of data,let i = index" >
+          <!--原来设计的是多条通知滚动-->
+          <a class="layout-news-details" myMarquee (click)="eventView(item)" >{{item.title}}</a>
+            <!--<a class="layout-news-details" style="cursor:pointer;padding-right: 200px; text-decoration: none;" *ngIf="data" (click)="eventView(data)" >{{data.title}}</a>-->
+        </h6>
+      </marquee>
+    </div>
+  </section>
+
+<section class="section-wrapper index">
+  <a class="items bg-01" (click)="choosePage('patrolPage')" tabindex="1">
+    <h2>实时巡边</h2>
+  </a>
+  <a class="items bg-02" (click)="choosePage('reportPage')" tabindex="2">
+    <h2>信息报送</h2>
+  </a>
+  <a class="items bg-03" (click)="choosePage('videoPage')" tabindex="3">
+    <h2>实时视频</h2>
+  </a>
+  <a class="items bg-04" (click)="choosePage('personsManegePage')" tabindex="4">
+    <h2>护边员管理</h2>
+  </a>
+</section>
+
+<footer>
+
+  <h5>崇左市龙州县边防信息中心</h5>
+  <!--<h5>崇左市龙州县边防信息中心    版本号:{{tvVersion}}</h5><br>-->
+
+</footer>
+
+
+
+</ion-content>
+<ion-footer align-title="left" class="bar-assertive">
+  <img src="assets/img/back.png" height="50" width="50" style="cursor:pointer;position:absolute;left:0;bottom:0;" (click)="showConfirm()"/><img src="assets/img/update.png" height="50" width="50" style="cursor:pointer;position:absolute;right:0;bottom:0;" (click)="update()"/>
+</ion-footer>

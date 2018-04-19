@@ -1,0 +1,73 @@
+<ion-content class="ion-content-body">
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <!--video-->
+  <section class="section-wrapper return">
+    <div class="public-title">
+      <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <h4>视频回传</h4>
+      <a style="position: absolute;right: 1%;margin: 10px 0;" (click)="getPeopleOnline()"><img src="assets/img/refresh.png" width="40px" height="40px"></a>
+    </div>
+
+    <div class="videos-return" >
+    <!--<videoList></videoList>-->
+      <div class="swiper-container" >
+        <div class="swiper-wrapper" >
+
+          <div class="swiper-slide" *ngFor="let item of data">
+
+            <div class="swiper-slide-content">
+              <div class="swiper-slide-card">&nbsp;</div>
+              <br />
+              <div class="swiper-slide-button" >
+                <a class="player" (click)="showVideo(item)"><i class="glyphicon glyphicon-facetime-video"></i></a>
+                <a class="infor" (click)="showVideo(item)">
+                  <h5>{{item?.name}}</h5>
+                  <h5>{{item?.roadname}}</h5>
+                  <h5>{{showStatus(item.liveStatus)}}</h5>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!--<div class="swiper-slide">-->
+            <!--<div class="swiper-slide-content">-->
+              <!--<div class="swiper-slide-card">&nbsp;</div>-->
+              <!--<br />-->
+              <!--<div class="swiper-slide-button">-->
+                <!--<a class="player" href="#"><i class="glyphicon glyphicon-facetime-video"></i></a>-->
+                <!--<a class="infor" href="#">-->
+                  <!--<h5>姓名111</h5>-->
+                  <!--<h5>A32 路段</h5>-->
+                <!--</a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+          <!--<div class="swiper-slide">-->
+            <!--<div class="swiper-slide-content">-->
+              <!--<div class="swiper-slide-card">&nbsp;</div>-->
+              <!--<br />-->
+              <!--<div class="swiper-slide-button">-->
+                <!--<a class="player" href="#"><i class="glyphicon glyphicon-facetime-video"></i></a>-->
+                <!--<a class="infor" href="#">-->
+                  <!--<h5>姓名222</h5>-->
+                  <!--<h5>A32 路段</h5>-->
+                <!--</a>-->
+              <!--</div>-->
+            <!--</div>-->
+          <!--</div>-->
+
+
+        </div>
+        <div class="swiper-scrollbar"></div>
+        <!--<div class="swiper-pagination"></div>-->
+
+      </div>
+
+
+    </div>
+  </section>
+</ion-content>

@@ -1,0 +1,13 @@
+ <!---topbar-->
+  <section class="container-fluid" id="container-fluid">
+    <div class="topbar">
+      <div class="col-lg-6">
+        <img class="logo" alt="" src="assets/content/images/logo.png" />
+        <h2>广 西 边 海 防 信 息 平 台</h2>
+      </div>
+      <div class="col-lg-6">
+        <!--HH:mm:ss-->
+        <h3>{{nowtime | date:"yyyy年MM月dd日 " }}</h3>
+      </div>
+    </div>
+  </section>

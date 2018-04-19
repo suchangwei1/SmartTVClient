@@ -1,0 +1,179 @@
+<!--section-wrapper-->
+<ion-content class="ion-content-body">
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <!--section-wrapper-->
+  <section class="section-wrapper reports">
+    <div class="public-title">
+      <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <h4 class="Title1">护路员信息报送统计表</h4>
+      <h4 class="Title2" style="display:none;">护路员绩效考评统计表</h4>
+      <a class="btn btn-lg btn-success ShowDiv1" href="#">护路员绩效考评统计表</a>
+      <a class="btn btn-lg btn-success ShowDiv2" href="#" style="display:none;">护路员信息报送统计表</a>
+    </div>
+    <div class="table-wrapper">
+      <div id="Div1" class="table-cont">
+        <table class="jixoao-tables" cellSpacing="0" cellPadding="0">
+          <tr>
+            <th>姓名</th>
+            <th *ngFor="let item of month; let i = index">{{i+1}} 月</th>
+          </tr>
+          <tr *ngFor="let item of sendCountData">
+            <td>{{item?.userName}}</td>
+            <td>{{item?.jan}}</td>
+            <td>{{item?.feb}}</td>
+            <td>{{item?.mar}}</td>
+            <td>{{item?.apr}}</td>
+            <td>{{item?.may}}</td>
+            <td>{{item?.jun}}</td>
+            <td>{{item?.jul}}</td>
+            <td>{{item?.aug}}</td>
+            <td>{{item?.sep}}</td>
+            <td>{{item?.octb}}</td>
+            <td>{{item?.nov}}</td>
+            <td>{{item?.decb}}</td>
+
+          </tr>
+
+        </table>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+      <div id="Div2" class="table-cont" style="display:none;">
+        <table class="jixoao-tables" cellSpacing="0" cellPadding="0">
+          <tr></tr>
+          <tr>
+            <th>&nbsp;</th>
+            <th colspan="6" *ngFor="let item of month; let i = index">{{i+1}} 月</th>
+          </tr>
+          <tr>
+            <td>姓名</td>
+            <td *ngFor="let item of typeNum; let i=index">{{item}}</td>
+          </tr>
+
+          <tr *ngFor="let item of sendScoreData">
+            <td>{{item?.userName}}</td>
+            <td>{{sum_Distance(item?.monthMap?.month_1)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_1)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_1)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_1)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_1)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_1)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_2)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_2)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_2)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_2)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_2)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_2)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_3)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_3)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_3)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_3)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_3)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_3)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_4)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_4)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_4)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_4)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_4)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_4)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_5)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_5)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_5)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_5)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_5)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_5)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_6)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_6)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_6)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_6)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_6)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_6)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_7)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_7)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_7)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_7)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_7)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_7)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_8)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_8)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_8)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_8)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_8)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_8)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_9)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_9)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_9)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_9)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_9)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_9)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_10)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_10)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_10)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_10)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_10)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_10)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_11)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_11)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_11)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_11)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_11)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_11)}} 分</td>
+
+            <td>{{sum_Distance(item?.monthMap?.month_12)}} KM</td>
+            <td>{{sum_send(item?.monthMap?.month_12)}} 分</td>
+            <td>{{sum_mark(item?.monthMap?.month_12)}} 分</td>
+            <td>{{daily_score(item?.monthMap?.month_12)}} 分</td>
+            <td>{{manager_score(item?.monthMap?.month_12)}} 分</td>
+            <td style="background-color: aliceblue;">{{sum_score(item?.monthMap?.month_12)}} 分</td>
+          </tr>
+        </table>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+      </div>
+    </div>
+  </section>
+</ion-content>

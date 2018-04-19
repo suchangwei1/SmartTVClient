@@ -1,0 +1,72 @@
+<ion-content class="ion-content-body" >
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <!--section-wrapper-->
+  <section class="section-wrapper message">
+    <div class="public-title">
+      <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+      <h4>信息报送</h4>
+      <!--<select class="selectpicker" data-style="btn-info">-->
+        <!--<option>全部事件</option>-->
+        <!--<option>基础设施</option>-->
+        <!--<option>涉外事件</option>-->
+        <!--<option>走私事件</option>-->
+        <!--<option>突发事件</option>-->
+      <!--</select>-->
+      <div  class="maps-group1 right1" >
+      <div class="mess-title" style="padding: 0px;">
+        <div class="dropdown">
+          <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+            <label>{{typeLabel}}</label>
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu" style="position: inherit;margin-top: -5px;">
+            <!--0-基础设施；1-涉外事件；2-走私事件；3-突发事件-->
+            <li><a (click)="chooseType('-1')">全部事件</a></li>
+            <li><a (click)="chooseType('0')">基础设施</a></li>
+            <li><a (click)="chooseType('1')">涉外事件</a></li>
+            <li><a (click)="chooseType('2')">走私事件</a></li>
+            <li><a (click)="chooseType('3')">突发事件</a></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+
+    </div>
+    <div class="message-allbox">
+      <div class="listview" id="listview">
+        <div class="listgroups" *ngFor="let item of data ,let i = index" >
+                    <span class="border">
+                        <i>&nbsp;</i>
+                        <u>&nbsp;</u>
+                    </span>
+          <div class="content">
+            <h6>{{item?.eventTime}}</h6>
+            <div class="mess-inbox">
+
+              <a *ngFor="let event of item?.events">
+              <a [ngClass]="color(event?.type)" (click)="eventView(event?.id,event?.type)">
+                <h5>{{event?.type}}</h5>
+                <p>{{event?.shortContent}}</p>
+                <label>{{event?.createTime}}</label>
+              </a>
+              </a>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!--<ion-infinite-scroll (ionInfinite)="doInfinite($event)" >-->
+    <!--<ion-infinite-scroll-content-->
+      <!--loadingSpinner="circles"-->
+      <!--loadingText={{myloadingText}}>-->
+    <!--</ion-infinite-scroll-content>-->
+  <!--</ion-infinite-scroll>-->
+
+ </ion-content>
+
+

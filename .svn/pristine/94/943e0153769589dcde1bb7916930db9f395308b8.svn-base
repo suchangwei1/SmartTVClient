@@ -1,0 +1,206 @@
+<ion-content class="ion-content-body" >
+  <!---topbar-->
+  <facdHeader></facdHeader>
+
+  <!--section-wrapper-->
+  <section class="section-wrapper maps">
+    <div class="public-title"   style="width: 60%;" >
+      <a class="go-back" (click)="back()"><i class="glyphicon glyphicon-chevron-left"></i></a>
+
+      <h4  style="left: 83%;"  >龙州护边图</h4>
+    </div>
+    <div class="public-title" style="width: 15%;top: 80px;color: wheat;">
+      <input  id="showMapLine" name="showMapLine" type="checkbox" value="0" (click)="showMapLine()" checked/>显示边界<br>
+      <input  id="showMapMark" name="showMapMark" type="checkbox" value="1" (click)="showMapMark()"/>显示界碑<br>
+      <input  id="autoFresh" name="autoFresh" type="checkbox" value="1" (click)="autoFresh()"/>自动刷新<br>
+
+      </div>
+    <div class="public-title" style="width: 15%;top: 80px;color: wheat;right: -2%;">
+      <table>
+         <tr *ngFor="let item of lineColorList ,let i = index">
+           <td>{{item.name}}:</td>
+           <td>
+             <hr style="width: 39px;height: 8px;border: none;margin-top: 0;margin-bottom: 0px;" [ngStyle]="{'background-color':'rgb('+item.color.red+','+item.color.green+','+item.color.blue+')'}"/>
+             <!--<span [ngStyle]="{'background-color':'rgb('+item.color.red+','+item.color.green+','+item.color.blue+')'}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> -->
+           </td>
+         </tr>
+
+      </table>
+    </div>
+    <div class="maps-wrapper" id="cesiumContainer">
+    </div>
+    <div class="cesium-viewer-fullscreenContainer" style="display: block;">
+      <button type="button" (click)="fullScreen()" class="cesium-button cesium-fullscreenButton"><svg class="cesium-svgPath-svg" width="128" height="128" viewBox="0 0 128 128">
+        <path *ngIf="!fullScreenFlag" d="M 83.96875 17.5625 L 83.96875 17.59375 L 76.65625 24.875 L 97.09375 24.96875 L 76.09375 45.96875 L 81.9375 51.8125 L 102.78125 30.9375 L 102.875 51.15625 L 110.15625 43.875 L 110.1875 17.59375 L 83.96875 17.5625 z M 44.125 17.59375 L 17.90625 17.625 L 17.9375 43.90625 L 25.21875 51.1875 L 25.3125 30.96875 L 46.15625 51.8125 L 52 45.96875 L 31 25 L 51.4375 24.90625 L 44.125 17.59375 z M 46.0625 76.03125 L 25.1875 96.875 L 25.09375 76.65625 L 17.8125 83.9375 L 17.8125 110.21875 L 44 110.25 L 51.3125 102.9375 L 30.90625 102.84375 L 51.875 81.875 L 46.0625 76.03125 z M 82 76.15625 L 76.15625 82 L 97.15625 103 L 76.71875 103.0625 L 84.03125 110.375 L 110.25 110.34375 L 110.21875 84.0625 L 102.9375 76.8125 L 102.84375 97 L 82 76.15625 z"></path>
+        <path *ngIf="fullScreenFlag" d="M 104.34375 17.5625 L 83.5 38.4375 L 83.40625 18.21875 L 76.125 25.5 L 76.09375 51.78125 L 102.3125 51.8125 L 102.3125 51.78125 L 109.625 44.5 L 89.1875 44.40625 L 110.1875 23.40625 L 104.34375 17.5625 z M 23.75 17.59375 L 17.90625 23.4375 L 38.90625 44.4375 L 18.5 44.53125 L 25.78125 51.8125 L 52 51.78125 L 51.96875 25.53125 L 44.6875 18.25 L 44.625 38.46875 L 23.75 17.59375 z M 25.6875 76.03125 L 18.375 83.3125 L 38.78125 83.40625 L 17.8125 104.40625 L 23.625 110.25 L 44.5 89.375 L 44.59375 109.59375 L 51.875 102.3125 L 51.875 76.0625 L 25.6875 76.03125 z M 102.375 76.15625 L 76.15625 76.1875 L 76.1875 102.4375 L 83.46875 109.71875 L 83.5625 89.53125 L 104.40625 110.375 L 110.25 104.53125 L 89.25 83.53125 L 109.6875 83.46875 L 102.375 76.15625 z"></path>
+      </svg></button>
+    </div>
+  </section>
+
+      <div  id="mapsgroupleft" class="maps-group left" style="left:50px;top: 200px;position:absolute; z-index:3;display:none">
+        <div class="user-group">
+          <div class="infor">
+            <h6 class="align-center"><img alt="" src="{{patroldata?.icon}}" onerror="personImgOnError(this)" width="210px" height="220px"/></h6>
+            <h5 class="align-center">{{patroldata?.name}}</h5>
+            <p>巡防路段：{{patroldata?.roadname}}</p>
+            <p>巡防距离：{{patroldata?.totaldistance}} KM</p>
+            <p>已巡防 ： {{patroldata?.patroldistance}} KM</p>
+            <p>实时位置：{{patroldata?.longitude}},{{patroldata?.latitude}}</p>
+
+            <h5 class="advance">
+              <a href="#"><i class="glyphicon glyphicon-arrow-up"></i></a>
+              <label></label>
+            </h5>
+            <h6 class="align-center">
+              <a class="btn btn-danger white-160px" (click)="showVideoPage(patrolid,uid)"><i class="glyphicon glyphicon-facetime-video"></i> 视频回传</a>
+            </h6>
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
+      </div>
+
+      <div id="mapsgroupright" class="maps-group right" style="right:50px;top: 200px;position:absolute; z-index:3;display:none">
+        <div class="mess-title">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+              <label>{{evntLabel}}</label>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <!--0-基础设施；1-涉外事件；2-走私事件；3-突发事件-->
+              <li><a (click)="changeEvent(-1)">全部事件</a></li>
+              <li><a (click)="changeEvent(0)">基础设施</a></li>
+              <li><a (click)="changeEvent(1)">涉外事件</a></li>
+              <li><a (click)="changeEvent(2)">走私事件</a></li>
+              <li><a (click)="changeEvent(3)">突发事件</a></li>
+            </ul>
+          </div>
+        </div>
+        <!--	 0-基础设施；1-涉外事件；2-走私事件；3-突发事件 -->
+        <div class="mess-group">
+          <div class="mess-inbox">
+            <a *ngFor="let event of infolist" style="text-decoration:none">
+              <a [ngClass]="color(event?.send_info_type)" (click)="reportViewPage(event?.id)">
+                <h5>{{typeToName(event?.send_info_type)}}</h5>
+                <p>{{event?.send_info_name}}</p>
+                <label>{{event?.receiveTime}}</label>
+              </a>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+  <!--media-->
+  <section class="section-wrapper media message-media">
+    <a class="close" href="javascript:void(0);"><i class="glyphicon glyphicon-remove"></i></a>
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+
+
+        <div class="item active" *ngIf="!firstFile">
+          <table class="">
+            <tr>
+              <td>
+                <img src="assets/content/images/no_img.png"/>
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="item active" *ngIf="firstFile">
+          <table class="" *ngIf="firstFile?.fileType == '1'" >
+            <tr>
+              <td>
+                <img  src="{{firstFile?.fileUrl}}" />
+              </td>
+            </tr>
+          </table>
+
+          <section class="videos-wrapper" *ngIf="firstFile?.fileType == '2'">
+            <audio controls="controls" style="height: 350px;">
+              <source src="{{firstFile?.fileUrl}}" />
+              您的设备不支持播放音频
+            </audio>
+          </section>
+
+          <section class="videos-wrapper" *ngIf="firstFile?.fileType == '3'">
+            <video class="video-js vjs-default-skin" controls="" height="350px" width="500px">
+              <source class="mp4" src="{{firstFile?.fileUrl}}" type="video/mp4">
+              <source class="mp4" src="{{firstFile?.fileUrl}}" type="video/ogg">
+              <source class="mp4" src="{{firstFile?.fileUrl}}" type="video/webm">
+              您的设备不支持播放视频
+            </video>
+          </section>
+
+        </div>
+
+        <div class="item " *ngFor="let file of modelDate?.files">
+
+          <table class="" *ngIf="file?.fileType == '1'">
+            <tr>
+              <td>
+                <img src="{{file?.fileUrl}}" />
+              </td>
+            </tr>
+          </table>
+
+          <section class="videos-wrapper" *ngIf="file?.fileType == '2'">
+            <audio controls="controls"  style="height: 350px;" >
+              <source src="{{file?.fileUrl}}" />
+              您的设备不支持播放音频
+            </audio>
+          </section>
+
+          <section class="videos-wrapper" *ngIf="file?.fileType == '3'">
+            <video class="video-js vjs-default-skin" controls="" height="350px" width="500px">
+              <source class="mp4" src="{{file?.fileUrl}}" type="video/mp4">
+              <source class="mp4" src="{{file?.fileUrl}}" type="video/ogg">
+              <source class="mp4" src="{{file?.fileUrl}}" type="video/webm">
+              您的设备不支持播放视频
+            </video>
+          </section>
+
+        </div>
+
+
+      </div>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active" *ngIf="firstFile"></li>
+        <li data-target="#carousel-example-generic" *ngFor="let file of modelDate?.files,let i = index" [attr.data-slide-to]="i+1" ></li>
+      </ol>
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev" *ngIf="fileLength > 0 ">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      </a>
+      <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next" *ngIf="fileLength > 0 ">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      </a>
+    </div>
+    <div class="infro" style="  overflow: hidden; overflow-y: auto;">
+      <div class="title">
+        <span class="type"><i class="glyphicon glyphicon-info-sign"></i> 信息报送</span>
+        <h4>{{modelDate?.title}}</h4>
+        <span class="time"><i class="glyphicon glyphicon-time"></i>{{modelDate?.eventTime | date:"yyyy-MM-dd" }}</span>
+      </div>
+      <p>
+        {{modelDate?.contentText}}
+      </p>
+    </div>
+  </section>
+
+</ion-content>
+

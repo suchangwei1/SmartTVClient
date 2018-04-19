@@ -1,0 +1,45 @@
+/*
+  Declaration files are how the Typescript compiler knows about the type information(or shape) of an object.
+  They're what make intellisense work and make Typescript know all about your code.
+
+  A wildcard module is declared below to allow third party libraries to be used in an app even if they don't
+  provide their own type declarations.
+
+  To learn more about using third party libraries in an Ionic app, check out the docs here:
+  http://ionicframework.com/docs/v2/resources/third-party-libs/
+
+  For more info on type definition files, check out the Typescript docs here:
+  https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html
+*/
+
+//typescript引入第三方js
+//自定义action.js
+declare var Cesium: any;
+declare var CalculateWindowSize: any;
+declare var initPopover: any;
+declare var personsManegePage: any;
+declare var showNews: any;
+declare var showFeedBack: any;
+declare var closeNews: any;
+declare var hideInfoBox:any;
+declare var showPatrolinfo: any;
+declare var closePatrolinfo: any;
+declare var videoPage: any;
+declare var showMessDetailes: any;
+declare var Swiper: any;
+declare var initSwiper: any;
+declare var fullScreen: any;
+
+declare var hideHeader: any;
+declare var showHeader: any;
+
+declare var showSwiper: any;
+
+declare var mouseenter: any;
+declare var mouseleave: any;
+
+//declare var imgError: any;
+
+
+
+

@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="cordova-plugin-vlcplayer" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>com.sirbox.vlcplayer</name>
+    <js-module name="VlcPlayer" src="www/VlcPlayer.js">
+        <clobbers target="VlcPlayer" />
+    </js-module>
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="VlcPlayer" >
+                <param name="android-package" value="com.sirbox.vlcplayer.VlcPlayer"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/*">
+            <uses-permission android:name="android.permission.INTERNET" />
+        </config-file>
+        <!--<source-file src="src/android/com/sirbox/vlcplayer/SpotActivity.java" target-dir="src/android/com/sirbox/vlcplayer/"/>-->
+        <source-file src="src/android/com/sirbox/vlcplayer/VlcPlayer.java" target-dir="src/android/com/sirbox/vlcplayer/"/>
+        <framework src="src/android/vlcplayer.gradle" custom="true" type="gradleReference"/>
+    </platform>
+</plugin>
+

@@ -1,0 +1,18 @@
+{
+	"name": "cordova-video-push",
+	"version": "1.0.0",
+	"description": "Camera video live push",
+	"cordova": {
+		"id": "cordova-video-push",
+		"platforms": [
+			"android"
+		]
+	},
+	"engines":[{
+					"name": "cordova",
+					"version": ">=4.0.0"
+	}],
+	"author": "Chile Lue",
+	"license": "Apache 2.0",
+	"types": "./types/index.d.ts"
+}

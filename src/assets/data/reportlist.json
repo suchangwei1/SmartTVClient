@@ -1,0 +1,61 @@
+{
+  "success": true,
+  "msg": "获取数据成功",
+  "obj": [
+    {
+      "eventTime": "2017-06-15",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-14",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-13",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-12",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-11",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-10",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-09",
+      "events": [
+        {
+          "id": 12,
+          "type": "涉外事件",
+          "shortContent": "发现不明界碑"
+        },
+        {
+          "id": 13,
+          "type": "涉外事件",
+          "shortContent": "发现越境人员"
+        }
+      ]
+    },
+    {
+      "eventTime": "2017-06-08",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-07",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-06",
+      "events": []
+    },
+    {
+      "eventTime": "2017-06-05",
+      "events": []
+    }
+  ]
+}

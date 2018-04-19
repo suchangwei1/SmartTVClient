@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>旋转木马</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+<body>
+	<div class='poster-main carousel' data-setting='{
+			 "width":1000,
+			 "height":469,
+			 "posterWidth":332,
+			 "posterHeight":469,
+			 "verticalAlign":"bottom",
+			 "autoPlay":true,
+			 "speed":1000,
+			 "delay":1000,
+			 "scale":0.9
+		 }'>
+		<div class='poster-btn poster-prev-btn'></div>
+		<ul class='poster-list'>
+			<li class="list-item"><a href="#"><img src="./image/01.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/02.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/03.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/04.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/05.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/06.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/07.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/08.jpg" alt=""></a></li>
+			<li class="list-item"><a href="#"><img src="./image/09.jpg" alt=""></a></li>
+		</ul>
+		<div class='poster-btn poster-next-btn'></div>
+	</div>
+</body>
+<script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+<script src="js/carousel.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" charset="utf-8">
+	$(function(){
+        Carousel.init($('.carousel'));
+	})
+</script>
+</html>
